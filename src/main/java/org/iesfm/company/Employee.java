@@ -1,17 +1,20 @@
 package org.iesfm.company;
 
-import org.springframework.data.relational.core.mapping.Column;
-import org.springframework.data.relational.core.mapping.Table;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
-@Table("Employee")
+@Entity
+@Table(name = "Employee")
 public class Employee {
+    @Id
     private String nif;
     private String name;
     private String surname;
     private String role;
-    @Column("department_name")
+    @Column(name = "department_name")
     private String departmentName;
 
     public Employee(String nif, String name, String surname, String role, String departmentName) {
